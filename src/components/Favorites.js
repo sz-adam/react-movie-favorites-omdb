@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import '../styles/MovieTitle.css';
 
 import { FavoritesContext } from '../context/FavoritesContext';

@@ -34,7 +34,7 @@ function App() {
   const pages = [
     { name: "Kezdőlap", path: '/', menubar: true, element: <Movie /> },
     { name: "Kedvencek", path: '/favorites', menubar: true, element: <Favorites /> },
-    { name: "NotFound", path: '*', menubar: false, element: <>NotFound</>, icon: null },
+  
   ]
 
   return (

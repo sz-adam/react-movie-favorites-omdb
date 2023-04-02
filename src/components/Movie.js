@@ -5,11 +5,11 @@ import MovieTitle from "./MovieTitle";
 
 export default function Movie(props) {
     const [list, setList] = useState([]);
-    const [searchTerm, setSearchTerm] = useState("");
+    const [search, setSearch] = useState("");
 
 
     useEffect(() => {
-        axios.get(`https://www.omdbapi.com/?s=${searchTerm}&apikey=kulcs`)
+        axios.get(`https://www.omdbapi.com/?s=${search}&apikey=kulcs`)
             .then(res => {
                 if (res.data.Search) {
                     setList(res.data.Search)
@@ -20,14 +20,14 @@ export default function Movie(props) {
             .catch(error => {
                 setList([])
             })
-    }, [searchTerm])
+    }, [search])
 
     const handleSearch = (event) => {
-        setSearchTerm(event.target.value);
+        setSearch(event.target.value);
     }
     return (
         <div className="movie">
-            <input type="text" placeholder="Keressen egy filmet ..." value={searchTerm} onChange={handleSearch} />
+            <input type="text" placeholder="Keressen egy filmet ..." value={search} onChange={handleSearch} />
             <div className="row">
                 {list.map(element => <MovieTitle key={element.imdbID} value={element} />)}
             </div>
